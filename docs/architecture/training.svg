@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" role="img" aria-labelledby="arch-valorant-training-title arch-valorant-training-desc">
+<title id="arch-valorant-training-title">Valorant · 모델 학습 파이프라인</title>
+<desc id="arch-valorant-training-desc">12×8 입력·12×9 출력 경로와 24×7 재구성 경로는 교환 가능한 텐서가 아니다. Teacher forcing과 자기회귀 평가는 구분한다. 경기 단위 분할과 학습 분할에서의 scaler 적합은 재현 개선 조건이며 모든 저장 실험에서 이미 충족됐다고 표시하지 않았다.</desc>
+<rect width="1000" height="900" fill="white"/>
+<text x="28" y="31" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="24" font-weight="700" fill="#000000" text-anchor="start">Valorant · 모델 학습 파이프라인</text>
+<text x="28" y="60" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16" font-weight="400" fill="#566570" text-anchor="start">주 데이터 경로와 7특성 자기회귀 경로는 별도 스키마로 유지</text>
+<polyline points="260,200 260,275" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="260.00,275.00 255.83,265.91 264.17,265.91" fill="#536979"/>
+<polyline points="740,200 740,275" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="740.00,275.00 735.83,265.91 744.17,265.91" fill="#536979"/>
+<polyline points="260,410 260,475" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="260.00,475.00 255.83,465.91 264.17,465.91" fill="#536979"/>
+<polyline points="740,410 740,475" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="740.00,475.00 735.83,465.91 744.17,465.91" fill="#536979"/>
+<polyline points="260,605 260,640" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="260.00,640.00 255.83,630.91 264.17,630.91" fill="#536979"/>
+<polyline points="740,605 740,640" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="740.00,640.00 735.83,630.91 744.17,630.91" fill="#536979"/>
+<polyline points="260,750 260,770" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="260.00,770.00 255.83,760.91 264.17,760.91" fill="#536979"/>
+<polyline points="740,750 740,770" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="740.00,770.00 735.83,760.91 744.17,760.91" fill="#536979"/>
+<rect x="40" y="100" width="920" height="110" rx="8" fill="#f0f7f3" stroke="#56866e" stroke-width="1.8"/>
+<text x="56" y="131" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">VCT 2021–2025 원천 경기 CSV</text>
+<text x="56" y="163" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">경기 식별자 · 킬 · 라운드 결과 · 경제 정보 · 맵/점수</text>
+<text x="56" y="186" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">연도별 파일을 읽고 경기·팀·라운드 단위로 정렬</text>
+<rect x="40" y="275" width="440" height="135" rx="8" fill="#eff6fa" stroke="#397a99" stroke-width="1.8"/>
+<text x="56" y="306" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">주 경로: Game ID 기반 결합</text>
+<text x="56" y="338" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">팀별 킬 집계 + 상대팀 킬 + 결과·경제 정보</text>
+<text x="56" y="361" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">완전한 게임 선별 → 누적 점수·승패 횟수</text>
+<text x="56" y="384" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">연도 통합 vct_combined_all_years.csv</text>
+<rect x="520" y="275" width="440" height="135" rx="8" fill="#eff6fa" stroke="#397a99" stroke-width="1.8"/>
+<text x="536" y="306" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">별도 경로: 양 팀 관점 집계</text>
+<text x="536" y="338" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">레거시 병합 → 중복 정리 → 팀 관점 확장</text>
+<text x="536" y="361" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">킬 유형 해석 · 누적 점수 · 경제 특성</text>
+<text x="536" y="384" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">7특성 평탄화 CSV 구성</text>
+<rect x="40" y="475" width="440" height="130" rx="8" fill="#f0f7f3" stroke="#56866e" stroke-width="1.8"/>
+<text x="56" y="506" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">전반·후반 텐서 생성</text>
+<text x="56" y="538" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">X: 전반 12라운드 × 8특성</text>
+<text x="56" y="561" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">Y: 후반 12라운드 × 9출력 (승패 포함)</text>
+<text x="56" y="584" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">NPY + scaler_X / scaler_Y + metadata</text>
+<rect x="520" y="475" width="440" height="130" rx="8" fill="#f0f7f3" stroke="#56866e" stroke-width="1.8"/>
+<text x="536" y="506" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">7특성 1-step 표본 생성</text>
+<text x="536" y="538" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">12×7 전반 + 12×7 후반 → 24×7</text>
+<text x="536" y="561" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">시점 t까지 입력 → t+1의 my_win</text>
+<text x="536" y="584" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">해당 경로의 scaler로 정규화</text>
+<rect x="40" y="640" width="440" height="110" rx="8" fill="#f5f2f9" stroke="#8a6fa4" stroke-width="1.8"/>
+<text x="56" y="671" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">Keras 모델 비교</text>
+<text x="56" y="703" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">LSTM Seq2Seq · Encoder-only</text>
+<text x="56" y="726" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">Autoregressive · 선택 셀의 분할·설정 유지</text>
+<rect x="520" y="640" width="440" height="110" rx="8" fill="#f5f2f9" stroke="#8a6fa4" stroke-width="1.8"/>
+<text x="536" y="671" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">자기회귀 라운드 예측</text>
+<text x="536" y="703" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">별도 7특성 학습·검증</text>
+<text x="536" y="726" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">저장 accuracy 71.15%는 이 경로의 수치</text>
+<rect x="40" y="770" width="920" height="85" rx="8" fill="#f0f7f3" stroke="#56866e" stroke-width="1.8"/>
+<text x="56" y="801" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">평가와 보관 산출물</text>
+<text x="56" y="833" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">회귀 R²·MAE / 승패 Accuracy·F1·AUC · : .keras → 호환 .h5 + scaler</text>
+<rect x="28" y="875" width="17" height="13" fill="#eff6fa" stroke="#397a99"/>
+<text x="54" y="887" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="14.5" font-weight="400" fill="#1a2832" text-anchor="start">구현 코드</text>
+<rect x="205" y="875" width="17" height="13" fill="#f0f7f3" stroke="#56866e"/>
+<text x="231" y="887" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="14.5" font-weight="400" fill="#1a2832" text-anchor="start">파일·데이터</text>
+<rect x="405" y="875" width="17" height="13" fill="#f5f2f9" stroke="#8a6fa4"/>
+<text x="431" y="887" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="14.5" font-weight="400" fill="#1a2832" text-anchor="start">오프라인 학습</text>
+<rect x="635" y="875" width="17" height="13" fill="#fffaf0" stroke="#b7802b" stroke-dasharray="5 3"/>
+<text x="661" y="887" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="14.5" font-weight="400" fill="#1a2832" text-anchor="start">설계·미연결</text>
+</svg>

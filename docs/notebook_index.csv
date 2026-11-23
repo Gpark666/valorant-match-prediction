@@ -1,0 +1,5 @@
+﻿new_path,original_filename,purpose,original_modified_kst
+notebooks/03_train_first_half_to_second_half_seq2seq.ipynb,lstm_model.ipynb,8특성 입력과 9특성 출력 Seq2Seq 실험,2025-12-11T23:58:23+09:00
+notebooks/04_train_one_step_autoregressive_model.ipynb,lstm_pipeline.ipynb,초기 병합부터 1-step 자기회귀와 내보내기,2025-12-09T15:12:09+09:00
+notebooks/02_add_cumulative_scores_and_merge_years.ipynb,new_data_merge+scores.ipynb,누적 점수 부여와 전체 연도 통합,2025-12-09T21:10:28+09:00
+notebooks/01_build_game_id_round_dataset.ipynb,new_dataset.ipynb,Game ID 기반 라운드 데이터 재구성,2025-12-09T21:10:24+09:00

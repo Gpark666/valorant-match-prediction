@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" role="img" aria-labelledby="arch-valorant-service-title arch-valorant-service-desc">
+<title id="arch-valorant-service-title">Valorant · 현재 경기 조회 서비스 아키텍처</title>
+<desc id="arch-valorant-service-desc">React Native 호출 코드는 확인했고 VLR 수집기는 .pyc의 정적 문자열과 사용자 구현 이력으로 설명했다. API·수집기 사이 점선은 원문이 보존되지 않은 연결 경계다. 앱은 탭 또는 경기 변경 시 fetch하며 자동 주기 갱신이나 WebSocket은 확인되지 않았다.</desc>
+<rect width="1000" height="900" fill="white"/>
+<text x="28" y="31" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="24" font-weight="700" fill="#000000" text-anchor="start">Valorant · 현재 경기 조회 서비스 아키텍처</text>
+<text x="28" y="60" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16" font-weight="400" fill="#566570" text-anchor="start">현재 경기 상태 수집 구현 이력 · 실데이터의 모델 통과는 미수행</text>
+<polyline points="310,182 365,182" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="365.00,182.00 355.91,186.17 355.91,177.83" fill="#536979"/>
+<polyline points="635,182 690,182" fill="none" stroke="#b7802b" stroke-width="2.1" stroke-dasharray="8 6"/>
+<polygon points="690.00,182.00 680.91,186.17 680.91,177.83" fill="#b7802b"/>
+<polyline points="500,255 500,350" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="500.00,350.00 495.83,340.91 504.17,340.91" fill="#536979"/>
+<polyline points="825,255 825,350" fill="none" stroke="#536979" stroke-width="2.1"/>
+<polygon points="825.00,350.00 820.83,340.91 829.17,340.91" fill="#536979"/>
+<polygon points="825.00,255.00 829.17,264.09 820.83,264.09" fill="#536979"/>
+<polyline points="175,485 175,580" fill="none" stroke="#b7802b" stroke-width="2.1" stroke-dasharray="8 6"/>
+<polygon points="175.00,580.00 170.83,570.91 179.17,570.91" fill="#b7802b"/>
+<polyline points="310,650 365,650" fill="none" stroke="#b7802b" stroke-width="2.1" stroke-dasharray="8 6"/>
+<polygon points="365.00,650.00 355.91,654.17 355.91,645.83" fill="#b7802b"/>
+<polyline points="635,650 690,650" fill="none" stroke="#b7802b" stroke-width="2.1" stroke-dasharray="8 6"/>
+<polygon points="690.00,650.00 680.91,654.17 680.91,645.83" fill="#b7802b"/>
+<polyline points="500,755 500,720" fill="none" stroke="#b7802b" stroke-width="2.1" stroke-dasharray="8 6"/>
+<polygon points="500.00,720.00 504.17,729.09 495.83,729.09" fill="#b7802b"/>
+<rect x="40" y="110" width="270" height="155" rx="8" fill="#eff6fa" stroke="#397a99" stroke-width="1.8"/>
+<text x="56" y="141" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">React Native · Expo 앱</text>
+<text x="56" y="173" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">진행 중 / 결과 / 예정 탭</text>
+<text x="56" y="196" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">경기 카드 선택 → 상세 이동</text>
+<text x="56" y="219" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">q 또는 matchPage 변경 시</text>
+<text x="56" y="242" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">fetch 1회 요청</text>
+<rect x="365" y="110" width="270" height="145" rx="8" fill="#f3f5f7" stroke="#7b8792" stroke-width="1.8"/>
+<text x="381" y="141" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">개발 API 호출 계약</text>
+<text x="381" y="173" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">:8001/match?q=...</text>
+<text x="381" y="196" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">/match/detail?match_page=...</text>
+<text x="381" y="219" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">백엔드 원문은 현재 미보존</text>
+<rect x="690" y="110" width="270" height="145" rx="8" fill="#f3f5f7" stroke="#7b8792" stroke-width="1.8"/>
+<text x="706" y="141" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">VLR 수집기 보관 흔적</text>
+<text x="706" y="173" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">VLRScraper · requests</text>
+<text x="706" y="196" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">BeautifulSoup · HTML 파싱</text>
+<text x="706" y="219" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">scraper.cpython-313.pyc</text>
+<rect x="40" y="350" width="595" height="135" rx="8" fill="#eff6fa" stroke="#397a99" stroke-width="1.8"/>
+<text x="56" y="381" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">경기 목록·라운드 응답 → 앱 화면</text>
+<text x="56" y="413" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">대회·팀·점수·맵·라운드·승자 등 경기 진행 정보</text>
+<text x="56" y="436" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">응답 타입: rounds + next_round_prob: number | null</text>
+<text x="56" y="459" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">모델 미연결 상태는 상세 화면의 “예측 불가”로 처리</text>
+<rect x="690" y="350" width="270" height="135" rx="8" fill="#f0f7f3" stroke="#56866e" stroke-width="1.8"/>
+<text x="706" y="381" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">VLR.gg 경기 페이지</text>
+<text x="706" y="413" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">/matches · 개별 경기 HTML</text>
+<text x="706" y="436" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">현재 경기 상태를 요청·해석</text>
+<text x="706" y="459" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">지속 스트림과는 구분</text>
+<rect x="40" y="580" width="270" height="140" rx="8" fill="#fffaf0" stroke="#b7802b" stroke-width="1.8" stroke-dasharray="8 5"/>
+<text x="56" y="611" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">실데이터 특성 어댑터</text>
+<text x="56" y="643" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">학습 특성명·순서에 맞춰 변환</text>
+<text x="56" y="666" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">scaler · 모델별 시퀀스 길이</text>
+<text x="56" y="689" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">이 연결 단계는 미수행</text>
+<rect x="365" y="580" width="270" height="140" rx="8" fill="#fffaf0" stroke="#b7802b" stroke-width="1.8" stroke-dasharray="8 5"/>
+<text x="381" y="611" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">모델 추론 연결</text>
+<text x="381" y="643" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">선택한 모델·scaler 로드</text>
+<text x="381" y="666" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">입력 스키마 정합성 검증</text>
+<text x="381" y="689" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">수집값의 모델 통과 미수행</text>
+<rect x="690" y="580" width="270" height="140" rx="8" fill="#fffaf0" stroke="#b7802b" stroke-width="1.8" stroke-dasharray="8 5"/>
+<text x="706" y="611" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">예측 확률 응답 연결</text>
+<text x="706" y="643" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">모델 출력을 확률 필드로 매핑</text>
+<text x="706" y="666" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">next_round_prob로 반환</text>
+<text x="706" y="689" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">실제 제공 단계는 미수행</text>
+<rect x="365" y="755" width="595" height="90" rx="8" fill="#f5f2f9" stroke="#8a6fa4" stroke-width="1.8"/>
+<text x="381" y="786" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="19" font-weight="700" fill="#000000" text-anchor="start">별도 오프라인 학습 자산</text>
+<text x="381" y="818" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="16.5" font-weight="400" fill="#1a2832" text-anchor="start">7특성 1-step / 8→9특성 Seq2Seq · 모델과 scaler</text>
+<rect x="464.12060546875" y="290" width="71.7587890625" height="23" rx="3" fill="white"/>
+<text x="500" y="306" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="15" font-weight="400" fill="#53616d" text-anchor="middle">API 응답</text>
+<rect x="774.842041015625" y="290" width="100.31591796875" height="23" rx="3" fill="white"/>
+<text x="825" y="306" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="15" font-weight="400" fill="#53616d" text-anchor="middle">요청 / HTML</text>
+<rect x="145.5" y="518" width="59.0" height="23" rx="3" fill="white"/>
+<text x="175" y="534" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="15" font-weight="400" fill="#53616d" text-anchor="middle">미연결</text>
+<rect x="28" y="875" width="17" height="13" fill="#eff6fa" stroke="#397a99"/>
+<text x="54" y="887" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="14.5" font-weight="400" fill="#1a2832" text-anchor="start">구현 코드</text>
+<rect x="205" y="875" width="17" height="13" fill="#f0f7f3" stroke="#56866e"/>
+<text x="231" y="887" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="14.5" font-weight="400" fill="#1a2832" text-anchor="start">파일·데이터</text>
+<rect x="405" y="875" width="17" height="13" fill="#f5f2f9" stroke="#8a6fa4"/>
+<text x="431" y="887" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="14.5" font-weight="400" fill="#1a2832" text-anchor="start">오프라인 학습</text>
+<rect x="635" y="875" width="17" height="13" fill="#fffaf0" stroke="#b7802b" stroke-dasharray="5 3"/>
+<text x="661" y="887" font-family="Malgun Gothic,Noto Sans KR,Arial,sans-serif" font-size="14.5" font-weight="400" fill="#1a2832" text-anchor="start">설계·미연결</text>
+</svg>
